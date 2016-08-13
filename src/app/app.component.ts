@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
 
 import { Hero } from './hero';//導出Hero類別
+import { HeroService } from './hero.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  styleUrls: ['app.component.css'],
+  providers: [HeroService]
 })
 export class AppComponent {
   title = 'Tour of Heroes'; //application name
 
   // public heroes = HEROES;
   heroes: Hero[];
-  
+
   selectedHero: Hero;
 
   onSelect(hero: Hero) 
   { 
     this.selectedHero = hero; 
+  }
+  //定義一個私有的heroService屬性，
+  //將此當作heroService服務的靶點( injection site)
+  constructor(private heroService: HeroService) { }
+
+  getHeroes() {
+    this.heroes = this.heroService.getHeroes();
   }
 }
 
