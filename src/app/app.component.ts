@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Hero } from './hero';//導出Hero類別
 import { HeroService } from './hero.service';
@@ -27,6 +27,10 @@ export class AppComponent {
 
   getHeroes() {
     this.heroes = this.heroService.getHeroes();
+  }
+
+  ngOnInit() {
+    this.getHeroes();
   }
 }
 
