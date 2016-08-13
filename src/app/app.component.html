@@ -4,7 +4,9 @@
   <!--click為綁定的事件，onSelec方法將 
   模板輸入變量(template input variable)hero當作參數傳入-->
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes" 
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
     <span class="badge">
       {{hero.id}}
     </span> 
