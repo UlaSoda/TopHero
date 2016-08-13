@@ -7,15 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes'; //application name
-  // hero = 'Windstorm'; //a hero named "Windstorm".
-
-  // hero: Hero = {
-  //   id: 1,
-  //   name:  'Windstorm'
-  // }
 
   public heroes = HEROES;
+  selectedHero: Hero;
 
+  onSelect(hero: Hero) 
+  { 
+    this.selectedHero = hero; 
+  }
 }
 
 export class Hero{
