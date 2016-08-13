@@ -28,9 +28,10 @@ export class AppComponent {
   // getHeroes() {
   //   this.heroes = this.heroService.getHeroes();
   // }
-  
+  //改為承諾-事情解決再行動
   getHeroes() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    // this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);    
   }
   ngOnInit() {
     this.getHeroes();
