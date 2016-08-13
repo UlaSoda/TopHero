@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Hero } from './hero';//導出Hero類別
 @Component({
@@ -7,8 +7,9 @@ import { Hero } from './hero';//導出Hero類別
     templateUrl: 'hero-detail.component.html',
     
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent {
     //@Input 裝飾器(decorator),宣告hero是從別的元件輸入過來的
     @Input() 
     hero: Hero;
+    
 }

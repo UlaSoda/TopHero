@@ -5,6 +5,8 @@ import { HEROES } from './mock-heroes';
 export class HeroService {//導出供別人使用
   getHeroes() 
   {
-      return HEROES;
+      // return HEROES;
+      //改為承諾-事情解決再行動
+      return Promise.resolve(HEROES);
   }
 }

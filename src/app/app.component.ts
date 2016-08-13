@@ -24,11 +24,14 @@ export class AppComponent {
   //定義一個私有的heroService屬性，
   //將此當作heroService服務的靶點( injection site)
   constructor(private heroService: HeroService) { }
-
+  //若是由service返回之數據,其等待時間ui會停止響應
+  // getHeroes() {
+  //   this.heroes = this.heroService.getHeroes();
+  // }
+  
   getHeroes() {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
-
   ngOnInit() {
     this.getHeroes();
   }
