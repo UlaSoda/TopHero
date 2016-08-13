@@ -13,12 +13,13 @@
     {{hero.name}}
   </li>
 </ul>
+detail部分移到hero-detail.component
 <!--當selectedHero有值，才會顯示英雄詳情-->
-<div *ngIf="selectedHero">
+<!--<div *ngIf="selectedHero">
   <h2>{{selectedHero.name}}'s details</h2>
   <label>id: </label>
   {{selectedHero.id}}
   <br>
   <label>name: </label>
   <input [(ngModel)]="selectedHero.name" placeholder="輸入姓名">
-</div>
+</div>-->
