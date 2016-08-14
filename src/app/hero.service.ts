@@ -59,6 +59,21 @@ export class HeroService {//導出供別人使用
              .catch(this.handleError);
   }
 
+  // Update existing Hero
+  private put(hero: Hero) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    let url = `${this.heroesUrl}/${hero.id}`;//附上想要修改的英雄
+
+    return this.http
+             .put(url, JSON.stringify(hero), {headers: headers})
+             .toPromise()
+             .then(() => hero)
+             .catch(this.handleError);
+  }
+
+
 
 
 }
