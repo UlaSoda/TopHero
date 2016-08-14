@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from './hero';//導出Hero類別
 import { HeroService } from './hero.service';
@@ -17,13 +18,16 @@ export class HeroesComponent implements OnInit {
 
   selectedHero: Hero;
 
+  
   onSelect(hero: Hero) 
   { 
     this.selectedHero = hero; 
   }
   //定義一個私有的heroService屬性，
   //將此當作heroService服務的靶點( injection site)
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router) { }
   //若是由service返回之數據,其等待時間ui會停止響應
   // getHeroes() {
   //   this.heroes = this.heroService.getHeroes();
@@ -35,6 +39,9 @@ export class HeroesComponent implements OnInit {
   }
   ngOnInit() {
     this.getHeroes();
+  }
+  gotoDetail() {
+    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }
 
