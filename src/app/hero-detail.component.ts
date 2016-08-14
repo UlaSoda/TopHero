@@ -8,7 +8,7 @@ import { HeroService } from './hero.service';
     // moduleId: module.id,
     selector: 'my-hero-detail',
     templateUrl: 'hero-detail.component.html',
-    
+    styleUrls: ['hero-detail.component.css']    
 })
 export class HeroDetailComponent implements OnInit{
     //@Input 裝飾器(decorator),宣告hero是從別的元件輸入過來的
