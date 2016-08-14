@@ -72,6 +72,19 @@ export class HeroService {//導出供別人使用
              .then(() => hero)
              .catch(this.handleError);
   }
+  // Delte existing Hero
+  delete(hero: Hero) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    let url = `${this.heroesUrl}/${hero.id}`;
+
+    return this.http
+             .delete(url, {headers: headers})
+             .toPromise()
+             .catch(this.handleError);
+  }
+
 
 
 
