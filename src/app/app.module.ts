@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';//表單須引用此模組
-import { HttpModule } from '@angular/http';
+// Imports for loading & configuring the in-memory web api
+import { HttpModule, XHRBackend } from '@angular/http';
+
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';//導入路由模組
 

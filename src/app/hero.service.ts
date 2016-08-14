@@ -1,27 +1,51 @@
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+import { HttpModule } from '@angular/http';
+
 
 import { HEROES } from './mock-heroes';
 import { Hero } from './hero';//導出Hero類別
 
 @Injectable()//可被注入
 export class HeroService {//導出供別人使用
-  getHeroes() 
-  {
-      // return HEROES;
-      //改為承諾-事情解決再行動
-      return Promise.resolve(HEROES);
+  private heroesUrl = 'app/heroes';//Url to web api
+
+  constructor(private http: Http){}
+  
+  // getHeroes() 
+  // {
+  //     // return HEROES;
+  //     //改為承諾-事情解決再行動
+  //     return Promise.resolve(HEROES);
       
+  // }
+  // getHeroesSlowly() {
+  //   return new Promise<Hero[]>(resolve =>
+  //     setTimeout(() => resolve(HEROES), 2000) // 2 seconds
+  //   );
+  // }
+  // getHero(id: number) 
+  // {
+  //   //回傳指定的hero
+  //   return this.getHeroes()
+  //     .then(heroes => heroes.find(hero =>hero.id === id ));
+    
+  // }
+
+  //換成http
+  getHeroes(){
+    return this.http.get(this.heroesUrl)//Observable可觀察的對象
+            .toPromise()
+            .then(response => response.json().data as Hero[])//帶有data屬性的對象
+            .catch(this.handleError);//catch server failures and pass them to an error handler
+
   }
-  getHeroesSlowly() {
-    return new Promise<Hero[]>(resolve =>
-      setTimeout(() => resolve(HEROES), 2000) // 2 seconds
-    );
+
+  //將錯誤記錄在控制台
+  private handleError(error: any) {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);//也將錯誤回傳
   }
-  getHero(id: number) 
-  {
-    //回傳指定的hero
-    return this.getHeroes()
-      .then(heroes => heroes.find(hero =>hero.id === id ));
-      
-  }
+
+
 }
