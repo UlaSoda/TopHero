@@ -8,3 +8,5 @@ const appRoutes: Routes =[
         component: HeroesComponent
     }
 ];
+//從appRoutes匯入路由設定
+export const routing = RouterModule.forRoot(appRoutes);
