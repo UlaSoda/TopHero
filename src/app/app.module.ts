@@ -7,6 +7,7 @@ import { routing } from './app.routing';//導入路由模組
 
 import { HeroesComponent } from './heroes.component';//會使用此模組
 import { HeroDetailComponent } from './hero-detail.component';//會使用此模組
+import { DashboardComponent } from './dashboard.component';
 
 import { HeroService }  from './hero.service';
 
@@ -14,8 +15,8 @@ import { HeroService }  from './hero.service';
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroesComponent
-
+    HeroesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
