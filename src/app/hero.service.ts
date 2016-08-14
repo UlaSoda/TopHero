@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, Headers } from '@angular/http';
 
 
 import { HEROES } from './mock-heroes';
@@ -46,6 +46,19 @@ export class HeroService {//導出供別人使用
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);//也將錯誤回傳
   }
+
+  // Add new Hero
+  private post(hero: Hero): Promise<Hero> {
+    let headers = new Headers({
+        'Content-Type': 'application/json'});//一個請求的header 格式為json
+
+    return this.http
+             .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})//stringify: json轉字串
+             .toPromise()
+             .then(res => res.json().data)
+             .catch(this.handleError);
+  }
+
 
 
 }
