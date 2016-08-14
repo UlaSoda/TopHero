@@ -10,6 +10,14 @@
     {{hero.name}}
   </li>
 </ul>
+<!--錯誤訊息-->
+<div class="error" *ngIf="error">{{error}}</div>
+<!--新增英雄-->
+<button (click)="addHero()">Add New Hero</button>
+<div *ngIf="addingHero">
+  <my-hero-detail (close)="close($event)"></my-hero-detail>
+</div>
+
 <!--detail部分移到hero-detail.component-->
 <!--告訴HeroDetailComponent誰是被選的英雄<br>
 等號左邊的[hero]表示屬性綁定(property binding)的目標<br>-->
