@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
 
   selectedHero: Hero;
   error: any;//錯誤訊息
-  
+  addingHero = false;
   onSelect(hero: Hero) 
   { 
     this.selectedHero = hero; 
@@ -43,6 +43,16 @@ export class HeroesComponent implements OnInit {
   gotoDetail() {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
+  addHero() {
+    this.addingHero = true;
+    this.selectedHero = null;
+  }
+
+  close(savedHero: Hero) {
+    this.addingHero = false;
+    if (savedHero) { this.getHeroes(); }
+  }
+
 }
 
 // 移到hero.ts
