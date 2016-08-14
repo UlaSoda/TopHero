@@ -4,6 +4,11 @@ import { DashboardComponent } from './dashboard.component';
 //將第一個路由指向HerComponent
 const appRoutes: Routes =[
     {
+        path: '',//初始路由位置
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent
     },
