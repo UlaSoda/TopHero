@@ -34,5 +34,9 @@ export class HeroDetailComponent implements OnInit{
             }
         );
     }
+
+    goBack() {//上一頁
+    window.history.back();
+    }
     
 }
