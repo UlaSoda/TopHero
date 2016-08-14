@@ -23,3 +23,13 @@
   <label>name: </label>
   <input [(ngModel)]="selectedHero.name" placeholder="輸入姓名">
 </div>-->
+
+<!--顯示mini版的英雄細節，經過按鈕導航到完整版的英雄詳情-->
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+
+
