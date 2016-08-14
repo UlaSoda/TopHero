@@ -53,6 +53,21 @@ export class HeroesComponent implements OnInit {
     if (savedHero) { this.getHeroes(); }
   }
 
+  deleteHero(hero: Hero, event: any) {
+    event.stopPropagation();//終止事件
+    this.heroService
+        .delete(hero)
+        .then(res => {
+          this.heroes = this.heroes.filter(h => h !== hero);
+          if (this.selectedHero === hero) 
+          { 
+            this.selectedHero = null; 
+          }
+        })
+        .catch(error => this.error = error);
+}
+
+
 }
 
 // 移到hero.ts
