@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit{
     ){}
 
     ngOnInit(){//抓取前五名HERO
-        this.heroService.getHeroesSlowly()
+        this.heroService.getHeroes()
             .then(heroes => this.heroes = heroes.slice(0,5));    
     }
 

@@ -20,7 +20,7 @@ export class HeroService {//導出供別人使用
   getHero(id: number) 
   {
     //回傳指定的hero
-    return this.getHeroesSlowly()
+    return this.getHeroes()
       .then(heroes => heroes.find(hero =>hero.id === id ));
       
   }
