@@ -1,12 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './hero-detail.component';
+
 //將第一個路由指向HerComponent
 const appRoutes: Routes =[
     {
         path: '',//初始路由位置
         redirectTo: '/dashboard',
         pathMatch: 'full'
+    },
+    {
+        path: 'detail/:id',
+        component: HeroDetailComponent
     },
     {
         path: 'dashboard',
