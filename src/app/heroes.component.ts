@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
   selectedHero: Hero;
-
+  error: any;//錯誤訊息
   
   onSelect(hero: Hero) 
   { 
