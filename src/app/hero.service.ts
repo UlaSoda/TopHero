@@ -17,4 +17,11 @@ export class HeroService {//導出供別人使用
       setTimeout(() => resolve(HEROES), 2000) // 2 seconds
     );
   }
+  getHero(id: number) 
+  {
+    //回傳指定的hero
+    return this.getHeroesSlowly()
+      .then(heroes => heroes.find(hero =>hero.id === id ));
+      
+  }
 }
