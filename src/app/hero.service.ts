@@ -24,13 +24,13 @@ export class HeroService {//導出供別人使用
   //     setTimeout(() => resolve(HEROES), 2000) // 2 seconds
   //   );
   // }
-  // getHero(id: number) 
-  // {
-  //   //回傳指定的hero
-  //   return this.getHeroes()
-  //     .then(heroes => heroes.find(hero =>hero.id === id ));
+  getHero(id: number) 
+  {
+    //回傳指定的hero
+    return this.getHeroes()
+      .then(heroes => heroes.find(hero =>hero.id === id ));
     
-  // }
+  }
 
   //換成http
   getHeroes(){
