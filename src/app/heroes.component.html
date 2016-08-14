@@ -1,0 +1,25 @@
+  <!--click為綁定的事件，onSelec方法將 
+  模板輸入變量(template input variable)hero當作參數傳入-->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" 
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">
+      {{hero.id}}
+    </span> 
+    {{hero.name}}
+  </li>
+</ul>
+<!--detail部分移到hero-detail.component-->
+<!--告訴HeroDetailComponent誰是被選的英雄<br>
+等號左邊的[hero]表示屬性綁定(property binding)的目標<br>-->
+<my-hero-detail [hero]="selectedHero"></my-hero-detail>
+<!--當selectedHero有值，才會顯示英雄詳情-->
+<!--<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}}'s details</h2>
+  <label>id: </label>
+  {{selectedHero.id}}
+  <br>
+  <label>name: </label>
+  <input [(ngModel)]="selectedHero.name" placeholder="輸入姓名">
+</div>-->
