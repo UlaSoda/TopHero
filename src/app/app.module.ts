@@ -14,15 +14,18 @@ import { routing } from './app.routing';//導入路由模組
 import { HeroesComponent } from './heroes.component';//會使用此模組
 import { HeroDetailComponent } from './hero-detail.component';//會使用此模組
 import { DashboardComponent } from './dashboard.component';
+import { HeroSearchComponent } from './hero-search.component';
 
 import { HeroService }  from './hero.service';
 
+import './rxjs-extensions';
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
