@@ -84,6 +84,15 @@ export class HeroService {//導出供別人使用
              .toPromise()
              .catch(this.handleError);
   }
+  //將put post組合成一個新的方法
+  //根據hero對象的狀態決定該用哪個方法
+  save(hero: Hero): Promise<Hero>  {
+    if (hero.id) {
+      return this.put(hero);
+    }
+    return this.post(hero);
+  }
+
 
 
 
